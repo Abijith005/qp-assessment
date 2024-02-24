@@ -11,7 +11,7 @@ COPY . .
 RUN npm run build
 
 
-FROM node:18.17.1
+FROM node:18.17.1 as production
 
 WORKDIR usr/src/app
 
