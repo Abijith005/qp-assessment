@@ -1,49 +1,48 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/sequelize";
 
-interface userAttributes {
+interface groceryAttributes {
   id?: number;
   name: string;
-  email: string;
-  password: string;
+  price: number;
+  quantity: number;
 }
 
-class UserModel extends Model<userAttributes> implements userAttributes {
+class GroceryModel extends Model<groceryAttributes> implements groceryAttributes
+{
   public id!: number;
   public name!: string;
-  public email!: string;
-  public password!: string;
+  public price!: number;
+  public quantity!: number;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
 
-UserModel.init(
+GroceryModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
       autoIncrement: true,
-      unique: true,
-      primaryKey:true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
+    price: {
+      type: DataTypes.FLOAT,
       allowNull: false,
-      unique: true,
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    quantity: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
   },
   {
     sequelize,
-    modelName: "User",
+    modelName:'Groceries',
   }
 );
 
-export default UserModel
+export default GroceryModel

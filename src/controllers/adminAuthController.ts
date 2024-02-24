@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import AdminModel from "../models/adminModel";
 import { loginDTO } from "../dtos/admin.dto";
 import bcrypt from "bcrypt";
+import jwtSign from "../helper/jwtSign";
 
 export const login = async (req: Request, res: Response) => {
   try {
@@ -10,8 +11,8 @@ export const login = async (req: Request, res: Response) => {
     if (admin) {
       const verify: boolean = await bcrypt.compare(password, admin.password);
       if (verify) {
-        
-        res.status(200).json({ success: true, message: "login successfull" });
+        const token=jwtSign({email:admin.email,role:"Admin"})
+        res.status(200).json({ success: true, message: "login successfull",authToken:token });
       } else {
         res
           .status(401)

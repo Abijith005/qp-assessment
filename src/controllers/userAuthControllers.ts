@@ -48,6 +48,7 @@ export const userLogin = async (req: Request, res: Response) => {
           name: user.name,
           email: user.email,
           id: user.id,
+          role:"User"
         });
         res.status(200).json({ success: true, message: "Login successfull",authToken:token});
       } else {

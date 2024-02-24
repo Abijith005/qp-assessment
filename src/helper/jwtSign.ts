@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import { userPayloadDTO } from "../dtos/user.dto";
+import { payloadDTO } from "../dtos/shared.dto";
 
-const jwtSign = (payload:userPayloadDTO) => {
+const jwtSign = (payload:payloadDTO) => {
   try {
     const token = jwt.sign(payload, process.env.JWT_SIGNATURE!, {
       expiresIn: "1d",

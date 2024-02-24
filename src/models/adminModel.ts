@@ -1,13 +1,13 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../config/sequelize'; 
 
-interface AdminAttributes {
+interface adminAttributes {
   id: number;
   email: string;
   password: string;
 }
 
-class AdminModel extends Model<AdminAttributes> implements AdminAttributes {
+class AdminModel extends Model<adminAttributes> implements adminAttributes {
   public id!: number;
   public email!: string;
   public password!: string;
