@@ -9,4 +9,12 @@ export interface createUserDTO {
   password: string;
 }
 
+interface item{
+  productId:number,
+  quantity:number,
+}
+
+export interface orderItemsDTO{
+  orderItems:[item]
+}
 

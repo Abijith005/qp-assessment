@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import jwtVerify from "../helper/jwtVerify";
+import jwtVerify from "../helpers/jwtVerify";
 
 const adminAuth = (req: Request, res: Response, next: NextFunction) => {
   try {

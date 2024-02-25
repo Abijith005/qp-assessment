@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { userLoginDTO, createUserDTO } from "../dtos/user.dto";
 import userModel from "../models/userModel";
 import bcrypt from "bcrypt";
-import jwtSign from "../helper/jwtSign";
+import jwtSign from "../helpers/jwtSign";
 
 export const userRegister = async (req: Request, res: Response) => {
   try {
@@ -59,7 +59,7 @@ export const userLogin = async (req: Request, res: Response) => {
     } else {
       res.status(404).json({ success: false, message: "Email not found" });
     }
-  } catch (error) {
+  } catch (error:any) {
     console.log(`error/n ${error}`);
     res.status(500).json({ success: false, message: "Internal server error" });
   }

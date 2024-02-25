@@ -1,8 +1,11 @@
 import express from "express"
-import { test } from "../controllers/userServiceController"
+import { listGroceries, orderGrocery } from "../controllers/userServiceController"
 
 const router=express.Router()
 
-router.get('/any',test)
+router.get('/listGroceries',listGroceries)
+
+router.post('/orderGroceries',orderGrocery)
+
 
 export default router

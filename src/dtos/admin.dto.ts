@@ -3,8 +3,3 @@ export interface loginDTO {
   password: string;
 }
 
-export interface groceryDTO{
-  name:string,
-  price:number,
-  quantity:number
-}

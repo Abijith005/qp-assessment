@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import AdminModel from "../models/adminModel";
 import { loginDTO } from "../dtos/admin.dto";
 import bcrypt from "bcrypt";
-import jwtSign from "../helper/jwtSign";
+import jwtSign from "../helpers/jwtSign";
 
 export const login = async (req: Request, res: Response) => {
   try {
@@ -21,7 +21,7 @@ export const login = async (req: Request, res: Response) => {
     } else {
       res.status(404).json({ succss: false, message: "Email not found" });
     }
-  } catch (error) {
+  } catch (error:any) {
     console.log(`error/n ${error}`);
     res.status(500).json({ success: false, message: "Internal server error" });
   }

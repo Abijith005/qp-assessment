@@ -21,9 +21,7 @@ UserModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       autoIncrement: true,
-      unique: true,
       primaryKey:true
     },
     name: {
