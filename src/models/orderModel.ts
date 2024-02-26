@@ -3,28 +3,36 @@ import sequelize from "../config/sequelize";
 
 interface orderAttributes {
   id: number;
+  userId: number;
   totalPrice: number;
 }
 
 class OrderModel extends Model implements orderAttributes {
   public id!: number;
+  public userId!: number;
   public totalPrice!: number;
 }
 
-
-OrderModel.init({
-    id:{
-        type:DataTypes.INTEGER,
-        autoIncrement:true,
-        primaryKey:true
+OrderModel.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    totalPrice:{
-        type:DataTypes.FLOAT,
-        allowNull:false
-    }
-},{
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    totalPrice: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+  },
+  {
     sequelize,
-    modelName:"Order"
-})
+    modelName: "Order",
+  }
+);
 
-export default OrderModel
+export default OrderModel;

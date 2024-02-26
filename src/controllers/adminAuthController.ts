@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import jwtSign from "../helpers/jwtSign";
 
 export const login = async (req: Request, res: Response) => {
-  try {
+  try {    
     const { email, password }: loginDTO = req.body;
     const admin = await AdminModel.findOne({ where: { email: email } });
     if (admin) {

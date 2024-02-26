@@ -3,13 +3,13 @@ import { addGroceryItem, getGroceryItems, manageInventory, removeItem, updateIte
 
 const router=express.Router()
 
-router.post('/add/grocery',addGroceryItem)
+router.post('/addGrocery',addGroceryItem)
 
 router.get('/viewGroceries',getGroceryItems)
 
-router.delete('/removeItem/:id',removeItem)
+router.delete('/removeGrocery/:id',removeItem)
 
-router.put('/updateItem/:id',updateItem)
+router.put('/updateGrocery/:id',updateItem)
 
 router.patch('/manageInventory/:id',manageInventory)
 

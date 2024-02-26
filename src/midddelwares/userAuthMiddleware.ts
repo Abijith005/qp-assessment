@@ -3,8 +3,9 @@ import jwtVerify from "../helpers/jwtVerify";
 
 const userAuth = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    console.log('it is comig antiehrkjhd,==============');
+    
     const token = req.headers.authorization!.split(" ")[1];
-    console.log(token);
 
     const verify = jwtVerify(token);
 
